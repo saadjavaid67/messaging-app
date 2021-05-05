@@ -31,7 +31,8 @@ function Login() {
     }
     let name;
     try {
-        name = (_user.displayName)
+        if(_user.displayName)
+        name = _user
     } catch (error) {
         console.log(error)
     }

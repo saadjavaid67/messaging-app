@@ -4,7 +4,6 @@ import mymodule from './login'
 
 let url = "https://saadjavaid67-messaging-app.herokuapp.com";
 const Home = (user) => {
-
     const [messages, setMessages] = useState([]);
     const [count, setCount] = useState(0);
 
@@ -21,15 +20,15 @@ const Home = (user) => {
                 person: "saad",
                 text: message,
                 visible: "true",
-                sentby: user.user,
-                name: null
+                sentby: user.user.displayName,
+                name: user.user
             })
         })
             .then(response => response.json());
     }
     useEffect(() => {
         const fetchMessages = async () => {
-            // console.log(user.user)
+            // console.log(user.user.displayName)
             // console.log('fetch call');
             await fetch(url + '/messages', {
                 method: 'POST',
@@ -52,8 +51,8 @@ const Home = (user) => {
         <mymodule.signOut />
             <div id="_chat" className="chat">
                 {messages.map((message, key) => (
-                    <div className={(message.sentby === user.user) ? ("sender-message-wrapper") : ("reciever-message-wrapper")} key={key}>
-                        <div className={(message.sentby === user.user) ? ("sender message-container") : ("reciever message-container")}>
+                    <div className={(message.sentby === user.user.displayName) ? ("sender-message-wrapper") : ("reciever-message-wrapper")} key={key}>
+                        <div className={(message.sentby === user.user.displayName) ? ("sender message-container") : ("reciever message-container")}>
                             <div className="name">{message.sentby}</div>
                             <div className="message">{message.text}</div>
                             <div className="time">{message.time.split('.')[0]}</div>
