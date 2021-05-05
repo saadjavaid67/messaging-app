@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../App.css'
 import mymodule from './login'
 
-let url = "https://saadjavaid67-messaging-app.herokuapp.com/";
+let url = "https://saadjavaid67-messaging-app.herokuapp.com";
 const Home = (user) => {
 
     const [messages, setMessages] = useState([]);
