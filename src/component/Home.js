@@ -9,6 +9,15 @@ const Home = (user) => {
     const scrollDown = () => {
         var objDiv = document.getElementById("_chat");
         objDiv.scrollTop = objDiv.scrollHeight;
+        document.getElementById("_chat").addEventListener('scroll',()=>{
+            if (Math.floor(document.getElementById("_chat").scrollTop/1000)==Math.floor(document.getElementById("_chat").scrollHeight/1000)){
+            document.getElementById("scrollDown").style.display = 'none';
+            }
+            else{
+                document.getElementById("scrollDown").style.display = 'block';
+            }
+            console.log(Math.floor(document.getElementById("_chat").scrollTop/1000),Math.floor(document.getElementById("_chat").scrollHeight/1000))
+        })
     }
     
     const sendMessage = async (e, _text) => {
@@ -31,14 +40,6 @@ const Home = (user) => {
         .then(response => response.json());
         scrollDown()
     }
-    document.getElementById("_chat").addEventListener('scroll',()=>{
-        if (Math.floor(document.getElementById("_chat").scrollTop/1000)==Math.floor(document.getElementById("_chat").scrollHeight/1000)){
-        document.getElementById("scrollDown").style.display = 'none';
-        }
-        else{
-            document.getElementById("scrollDown").style.display = 'block';
-        }
-    })
     useEffect(() => {
         const fetchMessages = async () => {
             // console.log(user.user.displayName)
