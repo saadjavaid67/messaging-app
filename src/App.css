@@ -16,6 +16,13 @@
     overflow: auto;
 }
 
+#scrollDown {
+    position: absolute;
+    bottom: 55px;
+    border-radius: 20px;
+    right: 20px;
+}
+
 #login {
     padding: 15px 25px;
     position: absolute;

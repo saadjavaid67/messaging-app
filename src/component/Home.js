@@ -6,6 +6,11 @@ let url = "https://saadjavaid67-messaging-app.herokuapp.com";
 const Home = (user) => {
     const [messages, setMessages] = useState([]);
     const [count, setCount] = useState(0);
+       const scrollDown=()=>{
+           var objDiv = document.getElementById("_chat");
+           objDiv.scrollTop = objDiv.scrollHeight;
+       } 
+    
 
     const sendMessage = async (e, _text) => {
         e.preventDefault();
@@ -37,15 +42,12 @@ const Home = (user) => {
             })
                 .then(response => response.json())
                 .then(data => setMessages(data));
-            if (document.getElementById("_chat")) {
-                var objDiv = document.getElementById("_chat");
-                objDiv.scrollTop = objDiv.scrollHeight;
-            }
+            
             // console.log(messages)
         }
         fetchMessages();
     }, [messages, count]);
-    console.log(messages)
+    // console.log(messages)
     return (<div>
         <div className="chat-box">
         <mymodule.signOut />
@@ -59,6 +61,7 @@ const Home = (user) => {
                         </div>
                     </div>
                 ))}
+                <button onClick={(()=>scrollDown())} id="scrollDown"><i className="fas fa-arrow-alt-circle-down"></i></button>
             </div>
             <div className="sendmessage">
                 <form onSubmit={() => false}>
