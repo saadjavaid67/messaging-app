@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/messaging-app/static/css/main.b6f6fd00.chunk.css",
-    "main.js": "/messaging-app/static/js/main.22746e1a.chunk.js",
-    "main.js.map": "/messaging-app/static/js/main.22746e1a.chunk.js.map",
+    "main.css": "/messaging-app/static/css/main.528745f6.chunk.css",
+    "main.js": "/messaging-app/static/js/main.81afcae0.chunk.js",
+    "main.js.map": "/messaging-app/static/js/main.81afcae0.chunk.js.map",
     "runtime-main.js": "/messaging-app/static/js/runtime-main.c07c8174.js",
     "runtime-main.js.map": "/messaging-app/static/js/runtime-main.c07c8174.js.map",
     "static/js/2.eda7df14.chunk.js": "/messaging-app/static/js/2.eda7df14.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.817265b6.chunk.js": "/messaging-app/static/js/3.817265b6.chunk.js",
     "static/js/3.817265b6.chunk.js.map": "/messaging-app/static/js/3.817265b6.chunk.js.map",
     "index.html": "/messaging-app/index.html",
-    "static/css/main.b6f6fd00.chunk.css.map": "/messaging-app/static/css/main.b6f6fd00.chunk.css.map",
+    "static/css/main.528745f6.chunk.css.map": "/messaging-app/static/css/main.528745f6.chunk.css.map",
     "static/js/2.eda7df14.chunk.js.LICENSE.txt": "/messaging-app/static/js/2.eda7df14.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c07c8174.js",
     "static/js/2.eda7df14.chunk.js",
-    "static/css/main.b6f6fd00.chunk.css",
-    "static/js/main.22746e1a.chunk.js"
+    "static/css/main.528745f6.chunk.css",
+    "static/js/main.81afcae0.chunk.js"
   ]
 }
