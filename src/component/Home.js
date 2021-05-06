@@ -6,18 +6,17 @@ let url = "https://saadjavaid67-messaging-app.herokuapp.com";
 const Home = (user) => {
     const [messages, setMessages] = useState([]);
     const [count, setCount] = useState(0);
-       const scrollDown=()=>{
-           var objDiv = document.getElementById("_chat");
-           objDiv.scrollTop = objDiv.scrollHeight;
-       } 
+    const scrollDown = () => {
+        var objDiv = document.getElementById("_chat");
+        objDiv.scrollTop = objDiv.scrollHeight;
+    }
     
-
     const sendMessage = async (e, _text) => {
         e.preventDefault();
         let message = _text.value;
         _text.value = '';
         setCount(count + 1);
-        console.log(count);
+        // console.log(count);
         await fetch(url + '/message', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -29,8 +28,17 @@ const Home = (user) => {
                 name: user.user
             })
         })
-            .then(response => response.json());
+        .then(response => response.json());
+        scrollDown()
     }
+    document.getElementById("_chat").addEventListener('scroll',()=>{
+        if (Math.floor(document.getElementById("_chat").scrollTop/1000)==Math.floor(document.getElementById("_chat").scrollHeight/1000)){
+        document.getElementById("scrollDown").style.display = 'none';
+        }
+        else{
+            document.getElementById("scrollDown").style.display = 'block';
+        }
+    })
     useEffect(() => {
         const fetchMessages = async () => {
             // console.log(user.user.displayName)
@@ -40,8 +48,8 @@ const Home = (user) => {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ person: "saad" })
             })
-                .then(response => response.json())
-                .then(data => setMessages(data));
+            .then(response => response.json())
+            .then(data => setMessages(data));
             
             // console.log(messages)
         }
@@ -50,7 +58,7 @@ const Home = (user) => {
     // console.log(messages)
     return (<div>
         <div className="chat-box">
-        <mymodule.signOut />
+            <mymodule.signOut />
             <div id="_chat" className="chat">
                 {messages.map((message, key) => (
                     <div className={(message.sentby === user.user.displayName) ? ("sender-message-wrapper") : ("reciever-message-wrapper")} key={key}>
@@ -61,7 +69,7 @@ const Home = (user) => {
                         </div>
                     </div>
                 ))}
-                <button onClick={(()=>scrollDown())} id="scrollDown"><i className="fas fa-arrow-alt-circle-down"></i></button>
+                <button onClick={(() => scrollDown())} id="scrollDown"><i className="fas fa-arrow-alt-circle-down"></i></button>
             </div>
             <div className="sendmessage">
                 <form onSubmit={() => false}>
